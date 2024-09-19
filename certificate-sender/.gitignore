@@ -1,6 +1,33 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variable files (keep sensitive info out of version control)
 .env
+
+# Google API credentials
 credentials.json
-certificate-template.pdf
-participants.xlsx
 hackmoral-12e19d799c1f.json
-/certificates
+
+# Certificate template and generated certificates
+certificate-template.pdf
+certificates/
+
+# Excel participant data (sensitive info)
+participants.xlsx
+
+# Logs (in case you log error or application logs)
+*.log
+
+# OS-specific files (Mac)
+.DS_Store
+
+# OS-specific files (Windows)
+Thumbs.db
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Ignore built files if using build tools (like Vite, Webpack, etc.)
+dist/
+build/
