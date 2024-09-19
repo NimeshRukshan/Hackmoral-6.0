@@ -121,12 +121,14 @@ Create a `.env` file in the project root to store sensitive information:
 
 ```env
 EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-email-password-or-app-specific-password
+EMAIL_PASS=your-email-password
+CREDENTIALS_PATH=path-to-your-google-credentials.json
 CERTIFICATES_FOLDER_ID=your-google-drive-folder-id
 ```
 
 - **EMAIL_USER:** Your Gmail address used to send emails.
 - **EMAIL_PASS:** Your Gmail password or an [App Password](https://support.google.com/accounts/answer/185833) if using two-factor authentication.
+- **CREDENTIALS_PATH:**  The Path of the Google Service Account credential.json
 - **CERTIFICATES_FOLDER_ID:** The ID of the Google Drive folder where certificates will be uploaded. You can find this in the folder's URL (`https://drive.google.com/drive/folders/YOUR_FOLDER_ID`).
 
 **_Note:_** Ensure that `.env` and `credentials.json` are added to `.gitignore` to prevent sensitive data from being pushed to version control.
@@ -162,11 +164,11 @@ certificate-sender/
 
 Ensure your Excel file (`participants.xlsx`) is formatted correctly:
 
-| Name          | Email             |
-| ------------- | ----------------- |
-| Alice Johnson | alice@example.com |
-| Bob Smith     | bob@example.com   |
-| ...           | ...               |
+| Name             | Email               |
+| -------------    | ------------------  |
+| Rukshan Fernando | Rukshan@example.com |
+| Nimesh Fdo       | nimesh@example.com  |
+| ...              | ...                 |
 
 - **Headers:** The first row should contain headers like `Name` and `Email`.
 - **Sheet Name:** By default, the script reads from `Sheet1`. Ensure your data is on this sheet or update the script accordingly.
