@@ -8,10 +8,12 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const PARTICIPANTS_EXCEL = "participants-sample.xlsx";
+
 const SHEET_NAME = "Sheet1";
 
 (async () => {
   try {
+    let count = 0;
     // Read participants from Excel
     const participants = readParticipantsFromExcel(
       PARTICIPANTS_EXCEL,
@@ -49,6 +51,7 @@ const SHEET_NAME = "Sheet1";
 
         // Step 3: Send Email
         const emailResult = await sendEmails(email, name, certificateLink);
+        count++;
         if (!emailResult) {
           throw new Error(`Failed to send email to ${name}.`);
         }
@@ -64,7 +67,9 @@ const SHEET_NAME = "Sheet1";
         "All certificates generated, uploaded, and emails sent successfully."
       );
     } else {
-      console.log("Some certificates were not processed successfully.");
+      console.log(
+        `Some certificates were not processed successfully.(${count})`
+      );
     }
   } catch (error) {
     console.error("An error occurred:", error.message);
